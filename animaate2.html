@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title> animate 5 문제 </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script>
+			$(function() {
+				$("button").click(function() {
+					//ocnsole.log($("#panel").css("left") + " / ");
+					//console.log($("#panel").css("top"));
+					
+					let aa = $("#panel");
+					aa.animate({left: "300px"}, 300);
+					$("#panel").animate({top: "300px"}, 300);
+					$("#panel").animate({left: "8px"}, 300);
+					$("#panel").animate({top: "53px"}, 300);
+
+					$("#panel").animate({left: "300px"}, 300, function() {
+					$("#panel").animate({top: "300px"}, 300, function() {
+					$("#panel").animate({left: "8px"}, 300, function() {
+					$("#panel").animate({top: "20px"}, 300);
+					});
+					});
+					});
+				});
+			});
+		</script>
+		<style>
+			div{ position:absolute; width:100px; 
+				height:100px; background-color:tomato; }
+		</style>
+	</head>
+
+	<body>
+		<button>animate(애니메이트)</button><br><br>
+		<div id="panel">제이쿼리는 재미있어...</div>
+	<!--
+		
+	-->
+	</body>
+</html>
