@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">//라이브러리</script>
+	<style>
+        *{ margin: 0; padding: 0; }
+        li { list-style-type: none;}
+        a { text-decoration: none; color: #000; }
+        a:hover { }
+        body {font-family: arial; font-size: 14px; background-color: rgba(0, 0, 255, 0.5); }
+
+        #header { position: relative; background-color: #000007; width: 100%; height: 120px; }
+            #gnb { /*overflow: hidden;*/ position: absolute; right: 30px; top: 30px; width: 750px; outline: 3px solid #ff0; border-radius: 0 0 20px 20px; /* 서브메뉴 전체에 보더값 적용 */}
+            #gnb:after { content:""; display: block; clear: both; }
+            
+            .menu { width: 150px; background-color: #fff; text-align: center; float: left; /*border-radius: 0 0 20px 20px; li메뉴 하나씩 보더값 적용*/}
+            .menu>a {font-weight: bold; font-size: 16px; display: block; padding: 20px 0; }
+            .sub_menu { display: none; }
+                .sub_menu li { }
+                    .sub_menu li a { display: block; font-weight: bold; padding: 20px 0; }
+                    .sub_menu li a:hover { color: white; background-color: #000; }
+
+    </style>
+
+    <script>
+        $(function() {
+            $(".menu").mouseenter(function() {
+                //$(this).chidren("ul").stop().slideDown(500);
+                $(this).find("ul").stop().slideDown(500);
+                //$(".sub_menu").stop().sildeDown(500);
+            });
+            $(".menu").mouseleave(function() {
+                $(this).children("ul").stop().slideUp(500);
+                //$(".sub_menu").stop().sildeUp(500);
+            
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="header">
+        <ul id="gnb">
+            <li class="menu">
+                <a href="#">WEB(웹) 1</a>
+                <ul class="sub_menu">
+                    <li ><a href="#">서브01</a></li>
+                    <li ><a href="#">서브02</a></li>
+                    <li ><a href="#">서브03</a></li>
+                </ul>
+            </li>
+            <li class="menu">
+                <a href="#">WEB(웹) 2</a>
+                <ul class="sub_menu">
+                    <li ><a href="#">서브01</a></li>
+                    <li ><a href="#">서브02</a></li>
+                    <li ><a href="#">서브03</a></li>
+                </ul>
+            </li>
+            <li class="menu">
+                <a href="#">WEB(웹) 3</a>
+                <ul class="sub_menu">
+                    <li ><a href="#">서브01</a></li>
+                    <li ><a href="#">서브02</a></li>
+                    <li ><a href="#">서브03</a></li>
+                </ul>
+            </li>
+            <li class="menu">
+                <a href="#">WEB(웹) 4</a>
+                <ul class="sub_menu">
+                    <li ><a href="#">서브01</a></li>
+                    <li ><a href="#">서브02</a></li>
+                    <li ><a href="#">서브03</a></li>
+                </ul>
+            </li>
+            <li class="menu">
+                <a href="#">WEB(웹) 5</a>
+                <ul class="sub_menu">
+                    <li ><a href="#">서브01</a></li>
+                    <li ><a href="#">서브02</a></li>
+                    <li ><a href="#">서브03</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
