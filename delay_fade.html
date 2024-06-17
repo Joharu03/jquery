@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<style>
+* { margin:0; padding:0; }
+li { list-style:none; }
+body { background-color:#eee; }
+	.wrapper { width:900px; height:600px; margin:100px auto; outline:1px solid red; }
+		.gallery { width:50%; height:100%; float:left; }
+			.gallery li { margin: 5px; cursor:pointer; border:5px solid #000; opacity:0.5; box-sizing:border-box; overflow:hidden; display:none;/**/ }
+			.gallery li:hover { opacity:1; }
+			.side-a li { float:right; }
+			.side-b li { float:left; }
+				.type-a { width:70px; height:70px; border-radius: 50%; }
+					.type-a img{ width: 210px; height: 70px; }
+				.type-b { width:210px; height:70px; }
+					.type-b img {position: relative; top: -50px; }
+				.type-c { width:340px; height:120px; line-height: 110px; text-align: center;  background-color:#fff; font-size:50px; }
+					.type-c .inner img { position: relative; top: 100px; }
+			
+</style>
+
+<script>
+	$(function() {
+		$(".gallery li").each(function(indexNum) {		//indexNum: 인뎃스 번호가 0부터 들어감.
+			$(this).delay(indexNum*500).fadeIn();
+					
+			/* type-a */
+/*			$(".type-a").on({
+				"mouseenter":function() {
+					$(this).children("img").animate({ left: "-50px"});
+					$(this).animate({
+						border: "3px solid #f00",
+						borderColor: "#f00",
+						borderRadius: "20px"
+
+					});
+				},
+				"mouseleave":function() {
+					$(this).children("img").animate({ left: "0px"});
+					$(this).animate({
+						border: "3px solid #f00",
+						borderColor: "#f00",
+						borderRadius: "20px"
+
+					});
+				}
+			});*/
+			$(".type-c").mouseenter(function() {
+				$(this).children("img").animate({top: "0px"});
+				$(this).animate({borderColor: "#f00"});
+
+			});
+			$(".type-c").mouseleave(function() {
+				$(this).children("img").animate({top: "-50px"});
+				$(this).animate({borderColor: "#000"});
+			});
+
+				$(".type-c").hover(
+					function() {	//마우스를 올렸을 때
+						$(this).find("img").stop(true).animate({ top: "-120px" });	// $(this).children(".inner").children("img");	// .type-a .inner img { position: relative; top: 100px; }
+						$(this).animate({borderColor:"$f00"});
+				
+				},
+					function(){		//마우스를 내렸을 때
+						$(this).find("img").stop(true).animate({ top: "100px"});
+						$(this).animate({ borderColor: "#000"});
+				}
+			);
+		
+	});
+});
+</script>
+</head>
+<body>
+<div class="wrapper">
+	<ul class="gallery side-a">
+		<li class="type-b"><img src="../images/001.jpg"></li>
+		<li class="type-a"><img src="../images/002.jpg"></li>
+		<li class="type-b"><img src="../images/003.jpg"></li>
+		<li class="type-b"><img src="../images/004.jpg"></li>
+		<li class="type-c">저스티스 리그<div class="inner"><img src="../images/005.jpg"></div></li>
+		<li class="type-b"><img src="../images/006.jpg"></li>
+		<li class="type-a"><img src="../images/007.jpg"></li>
+		<li class="type-a"><img src="../images/008.jpg"></li>
+		<li class="type-c">저스티스 리그<div class="inner"><img src="../images/b02.png"></div></li>
+		<li class="type-b"><img src="../images/arrow.png"></li>
+	</ul>
+	<ul class="gallery side-b">
+		<li class="type-a"><img src="../images/aven01.jpg"></li>
+		<li class="type-b"><img src="../images/aven01.png"></li>
+		<li class="type-b"><img src="../images/aven02.jpg"></li>
+		<li class="type-a"><img src="../images/aven03.jpg"></li>
+		<li class="type-a"><img src="../images/aven04.jpg"></li>
+		<li class="type-c">어벤저스<div class="inner"><img src="../images/aven05.jpg"></div></li>
+		<li class="type-a"><img src="../images/aven06.jpg"></li>
+		<li class="type-b"><img src="../images/aven07.jpg"></li>
+		<li class="type-a"><img src="../images/aven08.jpg"></li>
+		<li class="type-b"><img src="../images/b01.png"></li>
+	</ul>
+</div>
+</body>
+
+<!--
+animate() 메서드
+
+animate({'속성':'값', '속성':'값'}, 시간, '가/감속 이징값')
+
+
+-->
+
+</html>
+
+
