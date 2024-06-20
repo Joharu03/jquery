@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>제이쿼리</title>
+		<style>
+			* { margin: 0; padding: 0; }
+			li { list-style: none; float:left; }
+
+			.black { background-color: rgba(0, 0, 0, 0.5); width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 100; display: none;/* */ }
+				.myWin { position: absolute; left: 50%; top: 50%; z-index: 200; width: 200px; height: 200px; margin-left: -100px; margin-top: -100px; border: 2px solid #f00; box-shadow: 3px 3px 3px #000; }
+				.btn { position: absolute; top : 50%; border: 2px solid #999; box-shadow: 2px 2px 2px #000; text-align: center; cursor: pointer; padding: 5px 10px; }
+				.prev { left: 0; border-radius: 50% 0 0 50%; }
+				.next { right: 0; border-radius: 0 50% 50% 0; }
+			
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		
+		<script>
+			$(function() {
+				$("li a").click(function() {
+					event.preventDefault(); 	//맨 아래에 쓰는 return false;와 같은 기능으로 a의 하이퍼링크 기능을 무시.
+					let bgImg = $(this).attr("href");
+					$(".myWin").css("background", "url("+ bgImg + ")");
+					// backgroudn: rul(경로);
+					$(".black").show();
+				});
+				$(".myWin").click(function() {
+					$(".black").hide();
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<a href="images/b01.png" class="thum_img"><img src="images/images01.jpg"></a>
+			</li>
+			<li>
+				<a href="images/b02.png" class="thum_img"><img src="images/images02.jpg"></a>
+			</li>
+			<li>
+				<a href="images/b03.png" class="thum_img"><img src="images/images03.jpg"></a>
+			</li>
+			<li>
+				<a href="images/b04.png" class="thum_img"><img src="images/images04.jpg"></a>
+			</li>
+		</ul>
+
+		<div class="black">  <!-- 클릭하면 확대되어 나오는 검은 창 -->
+			<div class="myWin">
+				<button type="button" class="prev btn">prev</button>
+				<button type="button" class="next btn">next</button> 
+			</div>
+		</div>	
+	</body>
+</html>
